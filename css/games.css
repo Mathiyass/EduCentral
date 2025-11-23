@@ -1,0 +1,180 @@
+/* Arcade Zone Layout */
+.arcade-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: var(--spacing-md);
+}
+
+.arcade-stats {
+    display: flex;
+    gap: var(--spacing-lg);
+}
+
+.stat-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-family: var(--font-display);
+}
+
+.stat-box .label {
+    font-size: 0.8rem;
+    color: var(--primary);
+}
+
+.stat-box .value {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    text-shadow: var(--neon-glow-red);
+}
+
+.game-console-wrapper {
+    background: rgba(10, 10, 10, 0.8);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    min-height: 600px;
+    position: relative;
+    overflow: hidden;
+}
+
+.game-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg);
+}
+
+/* Game Cards */
+.game-card {
+    background: #111;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+.game-card:hover {
+    transform: scale(1.02);
+    border-color: var(--primary);
+    box-shadow: var(--neon-glow);
+}
+
+.game-preview {
+    height: 180px;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.snake-preview::after {
+    content: '🐍';
+    font-size: 4rem;
+}
+
+.game-info {
+    padding: var(--spacing-md);
+}
+
+.game-info h3 {
+    font-family: var(--font-display);
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.game-info p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.play-btn {
+    width: 100%;
+    padding: 10px;
+    background: var(--primary);
+    color: #000;
+    border: none;
+    font-family: var(--font-display);
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.play-btn:hover {
+    background: #fff;
+}
+
+.locked {
+    opacity: 0.6;
+}
+
+.lock-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 180px;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: var(--secondary);
+}
+
+/* Active Game Area */
+#active-game-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    z-index: 50;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.game-ui-bar {
+    height: 50px;
+    background: #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.back-btn {
+    background: transparent;
+    border: 1px solid var(--text-muted);
+    color: var(--text-main);
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    border-color: var(--secondary);
+    color: var(--secondary);
+}
+
+#game-score {
+    font-family: var(--font-display);
+    color: var(--primary);
+    font-size: 1.5rem;
+}
+
+#game-canvas {
+    flex: 1;
+    width: 100%;
+    background: #050505;
+}

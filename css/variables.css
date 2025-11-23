@@ -1,0 +1,76 @@
+:root {
+    /* Core Colors */
+    --bg-dark: #050505;
+    --bg-panel: #0a0a0a;
+    --primary: #00FFDE; /* Cyan-blue */
+    --secondary: #FF0055; /* Red Accent */
+    --text-main: #ffffff;
+    --text-muted: #888888;
+    --border-color: #333333;
+
+    /* Effects */
+    --neon-glow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 40px var(--primary);
+    --neon-glow-red: 0 0 10px var(--secondary), 0 0 20px var(--secondary);
+    --scanline-color: rgba(0, 255, 222, 0.03);
+
+    /* Typography */
+    --font-main: 'JetBrains Mono', monospace;
+    --font-display: 'Orbitron', sans-serif;
+    --font-ui: 'Rajdhani', sans-serif;
+
+    /* Spacing */
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 4rem;
+
+    /* Transitions */
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Z-index Layers */
+    --z-bg: -1;
+    --z-content: 10;
+    --z-overlay: 100;
+    --z-cursor: 9999;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    cursor: none; /* Hiding default cursor for custom one */
+}
+
+html {
+    font-family: var(--font-main);
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    scroll-behavior: smooth;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+::selection {
+    background: var(--primary);
+    color: var(--bg-dark);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+}

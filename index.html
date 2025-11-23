@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Ultimate Portfolio - A legendary showcase of web technology.">
+    <title>LEGENDARY PORTFOLIO | Architecting the Future</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/games.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div id="cursor" class="cursor"></div>
+    <div id="cursor-follower" class="cursor-follower"></div>
+
+    <!-- Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="logo" data-text="LEGENDARY">LEGENDARY</div>
+        <div class="nav-links">
+            <a href="#home" class="nav-item active" data-target="home">
+                <span class="icon"><i class="fas fa-home"></i></span>
+                <span class="text">BASE</span>
+            </a>
+            <a href="#projects" class="nav-item" data-target="projects">
+                <span class="icon"><i class="fas fa-code"></i></span>
+                <span class="text">PROJECTS</span>
+            </a>
+            <a href="#games" class="nav-item" data-target="games">
+                <span class="icon"><i class="fas fa-gamepad"></i></span>
+                <span class="text">ARCADE</span>
+            </a>
+            <a href="#skills" class="nav-item" data-target="skills">
+                <span class="icon"><i class="fas fa-brain"></i></span>
+                <span class="text">SKILLS</span>
+            </a>
+            <a href="#contact" class="nav-item" data-target="contact">
+                <span class="icon"><i class="fas fa-envelope"></i></span>
+                <span class="text">CONTACT</span>
+            </a>
+        </div>
+        <div class="nav-extras">
+            <button id="theme-toggle" class="icon-btn"><i class="fas fa-moon"></i></button>
+            <button id="sound-toggle" class="icon-btn"><i class="fas fa-volume-up"></i></button>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main id="app">
+
+        <!-- HERO SECTION -->
+        <section id="home" class="view active-view">
+            <div class="hero-content">
+                <div class="glitch-wrapper">
+                    <h1 class="hero-title glitch" data-text="ARCHITECTING">ARCHITECTING</h1>
+                    <h1 class="hero-title glitch layer2" data-text="THE_FUTURE">THE_FUTURE</h1>
+                </div>
+                <p class="hero-subtitle">Full-Stack Engineer // Creative Developer // Void Walker</p>
+
+                <div class="cta-group">
+                    <a href="#projects" class="btn primary glitch-btn">
+                        <span class="btn-content">EXPLORE WORK</span>
+                        <span class="btn-glitch"></span>
+                    </a>
+                    <a href="#games" class="btn secondary">
+                        <span class="btn-content">ENTER ARCADE</span>
+                    </a>
+                </div>
+
+                <div class="scroll-indicator">
+                    <span>SCROLL TO INITIALIZE</span>
+                    <div class="mouse">
+                        <div class="wheel"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="view">
+            <h2 class="section-title">Select Mission <span class="accent">01</span></h2>
+            <div class="projects-grid">
+                <!-- Projects injected via JS -->
+            </div>
+        </section>
+
+        <!-- GAMES SECTION -->
+        <section id="games" class="view">
+            <div class="arcade-header">
+                <h2 class="section-title">ARCADE ZONE <span class="accent">RANK: <span id="player-rank">NOOB</span></span></h2>
+                <div class="arcade-stats">
+                    <div class="stat-box">
+                        <span class="label">CREDITS</span>
+                        <span class="value">∞</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="label">SCORE</span>
+                        <span class="value" id="total-score">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-console-wrapper">
+                <div class="game-list">
+                    <!-- Game Cards -->
+                    <div class="game-card" data-game="snake">
+                        <div class="game-preview snake-preview"></div>
+                        <div class="game-info">
+                            <h3>NEON SNAKE</h3>
+                            <p>Classic gameplay. Cyberpunk aesthetic.</p>
+                            <button class="play-btn" onclick="app.games.load('snake')">START_GAME</button>
+                        </div>
+                    </div>
+                    <div class="game-card locked">
+                        <div class="lock-overlay"><i class="fas fa-lock"></i></div>
+                        <div class="game-info">
+                            <h3>TETRIS</h3>
+                            <p>Coming Soon to Phase 2</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="active-game-container" class="hidden">
+                    <div class="game-ui-bar">
+                        <button class="back-btn" onclick="app.games.exit()"><i class="fas fa-arrow-left"></i> EXIT</button>
+                        <span id="game-title">GAME</span>
+                        <span id="game-score">0000</span>
+                    </div>
+                    <canvas id="game-canvas" width="800" height="600"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="view">
+            <h2 class="section-title">Neural Network <span class="accent">03</span></h2>
+            <div class="skills-container">
+                <!-- Skill clouds/graphs injected via JS -->
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="view">
+            <h2 class="section-title">Establish Uplink <span class="accent">04</span></h2>
+            <div class="contact-wrapper">
+                <form id="contact-form" class="cyber-form">
+                    <div class="form-group">
+                        <label>IDENTIFIER</label>
+                        <input type="text" placeholder="Enter Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>FREQUENCY (EMAIL)</label>
+                        <input type="email" placeholder="Enter Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>TRANSMISSION</label>
+                        <textarea placeholder="Enter Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn primary">SEND_DATA</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/background.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/games/snake.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
