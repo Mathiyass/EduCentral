@@ -1,0 +1,51 @@
+/* Intro Overlay Styles */
+#intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease-out;
+}
+
+#intro-overlay .status-text {
+    color: var(--primary, #00FFDE);
+    font-family: var(--font-main, monospace);
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px var(--primary, #00FFDE);
+    animation: textBlink 1.5s infinite;
+}
+
+#intro-overlay .init-btn {
+    background: transparent;
+    color: var(--primary, #00FFDE);
+    border: 2px solid var(--primary, #00FFDE);
+    padding: 1rem 2.5rem;
+    font-family: var(--font-display, sans-serif);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    box-shadow: 0 0 15px var(--primary, #00FFDE);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+#intro-overlay .init-btn:hover {
+    background: var(--primary, #00FFDE);
+    color: #000;
+    box-shadow: 0 0 30px var(--primary, #00FFDE);
+}
+
+@keyframes textBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
